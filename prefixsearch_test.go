@@ -1,4 +1,4 @@
-package prefixsearch_test
+package prefixsearch
 
 import (
 	"fmt"
