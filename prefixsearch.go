@@ -62,6 +62,19 @@ func (tree *SearchTree) AutoComplete(prefix string) []interface{} {
 	return result
 }
 
+// Search searches for value of key
+func (tree *SearchTree) Search(key string) interface{} {
+	current := tree.root
+	for _, sym := range key {
+		var ok bool
+		current, ok = current.childs[unicode.ToLower(sym)]
+		if !ok {
+			return nil
+		}
+	}
+	return current.value
+}
+
 func (n *node) recurse(callback func(interface{})) {
 	callback(n.value)
 	for _, v := range n.childs {
