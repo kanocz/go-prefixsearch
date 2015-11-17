@@ -8,7 +8,7 @@ import (
 )
 
 // ExampleAutoComplete just creates an object and does simple test
-func ExampleAutoComplete() {
+func ExampleSearchTree_AutoComplete() {
 	st := prefixsearch.New()
 	st.Add("Hello world!", 1)
 	st.Add("New impressions", 2)
@@ -28,7 +28,7 @@ func ExampleAutoComplete() {
 }
 
 // ExampleSearch shows another possible usage of this package
-func ExampleSearch() {
+func ExampleSearchTree_Search() {
 	st := prefixsearch.New()
 	st.Add("Hello world!", 1)
 	st.Add("New impressions", 2)

@@ -1,3 +1,5 @@
+// Package prefixsearch implements simple tree-based prefix search that
+// i'm using for different web autocomplete services
 package prefixsearch
 
 import (
