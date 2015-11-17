@@ -27,7 +27,12 @@ func New() *SearchTree {
 func (tree *SearchTree) Add(key string, value interface{}) {
 	current := tree.root
 
+	needUpdate := (nil == tree.Search(key))
+
 	for _, sym := range strings.ToLower(key) {
+		if needUpdate {
+			current.childnum++
+		}
 		next, ok := current.childs[sym]
 		if !ok {
 			newone := &node{childs: map[rune]*node{}}
@@ -37,6 +42,9 @@ func (tree *SearchTree) Add(key string, value interface{}) {
 		current = next
 	}
 
+	if needUpdate {
+		current.childnum++
+	}
 	current.value = value
 }
 
@@ -53,7 +61,7 @@ func (tree *SearchTree) AutoComplete(prefix string) []interface{} {
 	}
 
 	// we have found, now very stupid tree walk :)
-	var result []interface{}
+	result := make([]interface{}, 0, current.childnum)
 	current.recurse(func(v interface{}) {
 		if nil != v {
 			result = append(result, v)
