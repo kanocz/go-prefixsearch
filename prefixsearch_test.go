@@ -1,4 +1,4 @@
-package prefixsearch
+package prefixsearch_test
 
 import (
 	"fmt"
@@ -7,6 +7,7 @@ import (
 	"github.com/kanocz/go-prefixsearch"
 )
 
+// ExampleAutoComplete just creates an object and does simple test
 func ExampleAutoComplete() {
 	st := prefixsearch.New()
 	st.Add("Hello world!", 1)
@@ -26,6 +27,7 @@ func ExampleAutoComplete() {
 	// Output: [1 3]
 }
 
+// ExampleSearch shows another possible usage of this package
 func ExampleSearch() {
 	st := prefixsearch.New()
 	st.Add("Hello world!", 1)
