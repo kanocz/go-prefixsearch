@@ -27,6 +27,29 @@ func ExampleSearchTree_AutoComplete() {
 	// Output: [1 3]
 }
 
+// Support of unicode symbols and using struct as value
+func ExampleSearchTree_AutoComplete_unicode() {
+	data := []struct {
+		ID      int
+		Name    string
+		Comment string
+	}{
+		{1, "Hello world!", "First example"},
+		{2, "New impressions", "Second example"},
+		{3, "Hello golang!", "Some other important info"},
+		{4, "Привет, мир!", "Unicode symbols also work"},
+		{5, "こんにちは世界", "Even this one may work"},
+	}
+
+	st := prefixsearch.New()
+	for _, x := range data {
+		st.Add(x.Name, x)
+	}
+
+	fmt.Println(st.AutoComplete("こん"))
+	// Output: [{5 こんにちは世界 Even this one may work}]
+}
+
 // ExampleSearch shows another possible usage of this package
 func ExampleSearchTree_Search() {
 	st := prefixsearch.New()
