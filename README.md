@@ -3,6 +3,9 @@ go-prefixsearch
 
 Golang string prefix search (for autocomplete)
 
+[![GoDoc](http://godoc.org/github.com/kanocz/go-prefixsearch?status.svg)](http://godoc.org/github.com/kanocz/go-prefixsearch)
+
+
 ## Installation
 
 Install and update this go package with `go get -u github.com/kanocz/go-prefixsearch`
@@ -53,4 +56,4 @@ func main() {
 }
 ```
 
-[godoc]: http://godoc.org/github.com/tatsushid/go-fastping
+[godoc]: http://godoc.org/github.com/kanocz/go-prefixsearch
